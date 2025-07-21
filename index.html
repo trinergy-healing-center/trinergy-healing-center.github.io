@@ -9,8 +9,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/script.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/styles.css">
+    <script type="module" crossorigin src="/assets/index-Cjz8dHh2.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D-lDJWAC.css">
+    <script>
+      // GitHub Pages SPA router
+      // This handles the redirect from 404.html and simulates proper routing
+      (function() {
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        
+        // Handle query parameter routing from 404.html
+        const query = location.search;
+        if (query && query.startsWith('?p=')) {
+          const path = decodeURIComponent(query.slice(3));
+          history.replaceState(null, null, '/' + path);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

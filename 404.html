@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      // GitHub Pages SPA redirect script
+      // Store the current path and redirect to the root with the path encoded
+      const segment = location.pathname.slice(1);
+      if (segment) {
+        location.replace(location.origin + '/?p=' + encodeURIComponent(segment));
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
