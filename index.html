@@ -1,38 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trinergy Healing Center - Wellness through Ayurveda, Physiotherapy & Naturopathy</title>
-    <meta name="description" content="Experience holistic wellness at Trinergy Healing Center. We offer expert Ayurveda, Physiotherapy, and Naturopathy treatments for complete healing and health." />
-    <meta name="keywords" content="ayurveda, physiotherapy, naturopathy, wellness center, holistic healing, natural therapy, health treatment" />
+    <meta name="description" content="Experience holistic wellness at Trinergy Healing Center. We offer expert Ayurveda, Physiotherapy, and Naturopathy treatments for complete healing and health.">
+    <meta name="keywords" content="ayurveda, physiotherapy, naturopathy, wellness center, holistic healing, natural therapy, health treatment">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Trinergy Healing Center - Holistic Wellness">
+    <meta property="og:description" content="Expert Ayurveda, Physiotherapy, and Naturopathy treatments for complete healing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trinergy.gitlab.io">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/index-Cjz8dHh2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-D-lDJWAC.css">
-    <script>
-      // GitHub Pages SPA router
-      // This handles the redirect from 404.html and simulates proper routing
-      (function() {
-        const redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="scripts/index-BGMpD7jD.css">
+    
+    <style>
+        /* Navigation Styles */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        // Handle query parameter routing from 404.html
-        const query = location.search;
-        if (query && query.startsWith('?p=')) {
-          const path = decodeURIComponent(query.slice(3));
-          history.replaceState(null, null, '/' + path);
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-      })();
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #059669;
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #374151;
+            margin: 2px 0;
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: auto;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        .footer h3 {
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            padding: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-links svg {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        
+        .copyright {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="images/trinergy-official-logo-DHRlwVhE.png" alt="Trinergy Healing Center" class="logo">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/services.html">Services</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section style="background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%); padding: 4rem 0;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; text-align: center;">
+                <h1 style="font-size: 3rem; font-weight: bold; color: #111827; margin-bottom: 1rem;">
+                    Welcome to Trinergy Healing Center
+                </h1>
+                <p style="font-size: 1.25rem; color: #6b7280; max-width: 48rem; margin: 0 auto 2rem;">
+                    Experience holistic wellness through our integrated approach combining Ayurveda, 
+                    Physiotherapy, and Naturopathy for complete healing and natural health restoration.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="pages/contact.html" style="background: #059669; color: white; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: background 0.3s;">
+                        Book Consultation
+                    </a>
+                    <a href="pages/services.html" style="border: 2px solid #059669; color: #059669; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Slideshow -->
+        <section style="padding: 4rem 0; background: white;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: bold; color: #111827; margin-bottom: 1rem;">
+                        Our Healing Environment
+                    </h2>
+                    <p style="font-size: 1.125rem; color: #6b7280; max-width: 48rem; margin: 0 auto;">
+                        Explore our state-of-the-art facilities designed to provide a serene and therapeutic environment for your healing journey.
+                    </p>
+                </div>
+                
+                <div style="position: relative; max-width: 48rem; margin: 0 auto; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
+                    <div id="slideshow" style="display: flex; transition: transform 0.5s ease;">
+                        <img src="images/trinergy-center-interior-B_zKjUcB.jpg" alt="Interior View" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                        <img src="images/consultation-session-BWok5Fm0.jpg" alt="Consultation Session" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                        <img src="images/therapy-equipment-C05cn66M.jpg" alt="Therapy Equipment" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                        <img src="images/foot-therapy-Czs7n9GG.jpg" alt="Foot Therapy" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                        <img src="images/head-massage-therapy-mBtXeE4f.jpg" alt="Head Massage Therapy" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                        <img src="images/center-front-view-BdhX-Pf4.jpg" alt="Center Front View" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                        <img src="images/center-building-exterior-Bh_qU9Gd.jpg" alt="Building Exterior" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                        <img src="images/center-exterior-signage-qRWsQgE7.jpg" alt="Exterior Signage" style="width: 100%; flex-shrink: 0; height: 400px; object-fit: cover;">
+                    </div>
+                    
+                    <!-- Slideshow Controls -->
+                    <div style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem;">
+                        <button onclick="goToSlide(0)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                        <button onclick="goToSlide(1)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                        <button onclick="goToSlide(2)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                        <button onclick="goToSlide(3)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                        <button onclick="goToSlide(4)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                        <button onclick="goToSlide(5)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                        <button onclick="goToSlide(6)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                        <button onclick="goToSlide(7)" class="slide-dot" style="width: 0.75rem; height: 0.75rem; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer;"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section style="padding: 4rem 0; background: #f9fafb;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: bold; color: #111827; margin-bottom: 1rem;">
+                        Our Therapeutic Services
+                    </h2>
+                    <p style="font-size: 1.125rem; color: #6b7280;">
+                        Comprehensive healing solutions tailored to your individual needs
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Ayurveda -->
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg width="24" height="24" fill="#059669" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 1rem;">Ayurveda</h3>
+                        <p style="color: #6b7280; margin-bottom: 1.5rem;">Traditional healing system focusing on balance and natural wellness through personalized treatments.</p>
+                        <a href="pages/services.html" style="color: #059669; font-weight: 600; text-decoration: none;">Learn More →</a>
+                    </div>
+                    
+                    <!-- Physiotherapy -->
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg width="24" height="24" fill="#2563eb" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 1rem;">Physiotherapy</h3>
+                        <p style="color: #6b7280; margin-bottom: 1.5rem;">Evidence-based physical therapy to restore movement, reduce pain, and improve overall function.</p>
+                        <a href="pages/services.html" style="color: #059669; font-weight: 600; text-decoration: none;">Learn More →</a>
+                    </div>
+                    
+                    <!-- Naturopathy -->
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); text-align: center;">
+                        <div style="width: 4rem; height: 4rem; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <svg width="24" height="24" fill="#d97706" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 600; color: #111827; margin-bottom: 1rem;">Naturopathy</h3>
+                        <p style="color: #6b7280; margin-bottom: 1.5rem;">Natural healing approaches that stimulate the body's inherent ability to heal and maintain wellness.</p>
+                        <a href="pages/services.html" style="color: #059669; font-weight: 600; text-decoration: none;">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section style="padding: 4rem 0; background: #059669;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; text-align: center;">
+                <h2 style="font-size: 2.5rem; font-weight: bold; color: white; margin-bottom: 1rem;">
+                    Ready to Start Your Healing Journey?
+                </h2>
+                <p style="font-size: 1.125rem; color: #d1fae5; margin-bottom: 2rem; max-width: 48rem; margin-left: auto; margin-right: auto;">
+                    Contact us today to schedule your consultation and take the first step towards better health and wellness.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/917250684199?text=Hello! I would like to schedule an appointment at Trinergy Healing Center." 
+                       style="background: white; color: #059669; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        WhatsApp Us
+                    </a>
+                    <a href="tel:+917250684199" 
+                       style="border: 2px solid white; color: white; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <h3>Trinergy Healing Center</h3>
+            <p>Integrating Ayurveda, Physiotherapy, and Naturopathy for complete wellness and natural healing.</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61556776691298&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg fill="#3b82f6" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/trinergy_healing_center?igsh=MTg3ZGRtbzBmanJpNg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg fill="#ec4899" viewBox="0 0 24 24">
+                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323C5.802 8.252 6.953 7.762 8.25 7.762s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.324 1.297zm7.718 0c-1.297 0-2.448-.49-3.323-1.297-.807-.875-1.297-2.026-1.297-3.323s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@TrinergyHealingCenter" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <svg fill="#ef4444" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Trinergy Healing Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Slideshow functionality
+        let currentSlide = 0;
+        const totalSlides = 8;
+        const slideshow = document.getElementById('slideshow');
+        const dots = document.querySelectorAll('.slide-dot');
+
+        function updateSlideshow() {
+            slideshow.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.style.background = index === currentSlide ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)';
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlideshow();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlideshow();
+        }
+
+        // Auto-advance slideshow
+        setInterval(nextSlide, 4000);
+
+        // Initialize
+        updateSlideshow();
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
-  </body>
+</body>
 </html>
